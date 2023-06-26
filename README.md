@@ -1,2 +1,3 @@
 # muljunen.github.io
-Github pages
+
+Site available in: https://muljunen.github.io or https://mujunen.fi
