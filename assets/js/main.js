@@ -1,25 +1,20 @@
 jQuery(window).on('load', function() {
-	"use strict";
-
-    // HIDE PRELOADER
-    $(".preloader").addClass("hide-preloader");   
-    
+	"use strict";   
     // SHOW/ANIMATE ANIMATION CONTAINER
     setTimeout(function(){
-        $("#intro .animation-container").each(function() {
+        $("#entry .animation-container").each(function() {
             const e = $(this);
 
             setTimeout(function(){
                 e.addClass("run-animation");
             }, e.data("animation-delay") );
         });
-    }, 700 );    
+    }, 700 );
 });
 
 
 jQuery(document).ready(function($) {
 	"use strict";
-    
     // SMOOTH SCROLL FOR SAME PAGE LINKS
     $(document).on('click', 'a.smooth-scroll', function(event) {
         event.preventDefault();
@@ -27,17 +22,47 @@ jQuery(document).ready(function($) {
             scrollTop: $( $.attr(this, 'href') ).offset().top - 80
         }, 500);
     });
-    
-    // SCROLL REVEAL SETUP
-    window.sr = ScrollReveal();
-    sr.reveal(".scroll-animated-from-right", { 
-        duration: 600,
-        delay: 0,
-        origin: "right",
-        rotate: { x: 0, y: 0, z: 0 },
-        opacity: 0,
-        distance: "20vh",
-        viewFactor: 0.4,
-        scale: 1,
-    });    
+});
+
+gsap.registerPlugin(ScrollTrigger);
+// REVEAL //
+gsap.utils.toArray(".revealLeft").forEach(function (elem) {
+  ScrollTrigger.create({
+    trigger: elem,
+    start: "top 90%",
+    end: "bottom 10%",
+    markers: false,
+    onEnter: function () {
+      gsap.fromTo(
+        elem,
+        { x: 100, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          x: 0,
+          autoAlpha: 1,
+          ease: "back",
+          overwrite: "auto"
+        }
+      );
+    },
+    onLeave: function () {
+      gsap.fromTo(elem, { autoAlpha: 1 }, { autoAlpha: 0, overwrite: "auto" });
+    },
+    onEnterBack: function () {
+      gsap.fromTo(
+        elem,
+        { x: 100, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          x: 0,
+          autoAlpha: 1,
+          ease: "back",
+          overwrite: "auto"
+        }
+      );
+    },
+    onLeaveBack: function () {
+      gsap.fromTo(elem, { autoAlpha: 1 }, { autoAlpha: 0, overwrite: "auto" });
+    }
+  });
 });

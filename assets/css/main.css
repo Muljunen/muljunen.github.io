@@ -1,10 +1,9 @@
-/** Basic */
 html {
     font-size: 10px;
 }
 
 body {
-    font-family: 'Arapey', serif;
+    font-family: Verdana, sans-serif;
     font-weight: 300;
     font-style: normal;
 
@@ -53,9 +52,7 @@ p {
 
 a, a:hover, a:focus {
     cursor: pointer;
-    -webkit-transition: all 300ms ease;
-         -o-transition: all 300ms ease;
-            transition: all 300ms ease;
+    transition: all 300ms ease;
     text-decoration: none;
 }
 
@@ -75,125 +72,48 @@ a:hover {
     }
 }
 
-/** Preloader */
-.preloader {
-    position: fixed;
-    z-index: 100000;
-    bottom: 0;
-    left: 0;
-
-    overflow: hidden;
-
-    width: 100%;
-    height: 100%;
-
-    background: #fff;
-}
-
-.preloader.hide-preloader {
-    height: 0;
-    
-    -webkit-transition: .7s ease .3s;
-         -o-transition: .7s ease .3s;
-            transition: .7s ease .3s;
-}
-
-.preloader .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    display: block;
-
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    margin-left: -25px;
-
-    -webkit-animation: spinner-pulse .6s infinite ease-in-out;
-            animation: spinner-pulse .6s infinite ease-in-out;
-    text-align: center;
-
-    opacity: 1;
-    border-radius: 100%;
-    background-color: #111;
-}
-
-.preloader.hide-preloader .spinner {
-    opacity: 0;
-    
-    -webkit-transition: .3s ease;
-         -o-transition: .3s ease;
-            transition: .3s ease;
-}
-
-@-webkit-keyframes spinner-pulse {
-    0%
-    {
-        -webkit-transform: scale(0);
-    }
-    100%
-    {
-        -webkit-transform: scale(1.0);
-
-        opacity: 0;
-    }
-}
-
-@keyframes spinner-pulse {
-    0%
-    {
-        -webkit-transform: scale(0);
-                transform: scale(0);
-    }
-    100%
-    {
-        -webkit-transform: scale(1.0);
-                transform: scale(1.0);
-
-        opacity: 0;
-    }
-}
-
 /** Image Container */
-.image-container {
+.background-container {
     position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
 
     width: 50%;
     height: 100%;
 }
 
-.image-container .background-img {
+.background-container .background-image {
     position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-
     width: 100%;
     height: 100%;
 
-    -webkit-transition: opacity 1s ease;
-         -o-transition: opacity 1s ease;
-            transition: opacity 1s ease;
-
-    background: url(../img/tomi.jpg);
-    background-repeat: no-repeat;
+    background: url(../img/tomi.jpg) no-repeat center;
     background-size: cover;
-    background-position: center center;
 }
 
-@media (max-width:1200px) {
-    .image-container {
+@media (max-width: 1200px) {
+    .background-container {
         position: relative;
         z-index: 10;
         top: 0;
         left: 0;
 
         width: 100%;
-        height: 100vh;
+        height: 50vh;
+    }
+}
+
+@media (max-width:700px) {
+    .background-container {
+        position: relative;
+        z-index: 10;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 50vh;
+    }
+
+    .background-container .background-image {
+        background-size: contain;
     }
 }
 
@@ -219,12 +139,8 @@ a:hover {
     margin: 0 auto 18vh auto;
 }
 
-.content-area .content-area-inner section:last-child {
-    margin-bottom: 10vh;
-}
-
 .content-area .content-area-inner section h3.headline {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.0em;
 }
 
 @media (max-width:1200px) {
@@ -236,36 +152,24 @@ a:hover {
     }
 }
 
-/** Content Area --> Intro */
-#intro {
+/** Entry */
+#entry {
     position: relative;
-
     height: 100vh;
     margin-bottom: 0;
 }
 
-#intro .container-mid {
+#entry .container-mid {
     position: absolute;
+
     top: 50%;
-
     width: 100%;
-
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
-#intro .container-mid p.subline {
-    font-size: 2.2rem;
-    line-height: 1.6em;
-
-    margin-top: 2em;
-    margin-bottom: 2.2em;
-}
-
-#intro .container-mid a {
+#entry .container-mid a {
     font-size: 2.4rem;
-    line-height: 2.92em;
+    line-height: 3em;
 
     position: relative;
 
@@ -274,16 +178,14 @@ a:hover {
 
     padding: 0 2.6em;
 
-    -webkit-transition: .2s ease;
-         -o-transition: .2s ease;
-            transition: .2s ease;
+    transition: .2s ease;
 
     color: #fff;
     border-radius: 100px;
     background: none;
 }
 
-#intro .container-mid a:before {
+#entry .container-mid a:before {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -298,7 +200,7 @@ a:hover {
     background: #111;
 }
 
-#intro .container-mid a:after {
+#entry .container-mid a:after {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -308,129 +210,39 @@ a:hover {
     height: 100%;
 
     content: '';
-    -webkit-transition: .2s ease;
-         -o-transition: .2s ease;
-            transition: .2s ease;
+    transition: .2s ease;
 
-    background: #008aff;
+    background: gray;
 }
 
-#intro .container-mid a:hover:after {
+#entry .container-mid a:hover:after {
     width: 100%;
 }
 
-#intro .container-mid a i {
-    font-size: .85em;
+#entry .container-mid p.subline {
+    font-size: 2.0rem;
+    line-height: 1.6em;
 
-    margin-left: .7em;
-}
-
-#intro .animation-container {
-    -webkit-transition: .5s ease;
-         -o-transition: .5s ease;
-            transition: .5s ease;
-}
-
-#intro .animation-container.animation-fade {
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade.run-animation {
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-up {
-    -webkit-transform: translateY(10vh);
-        -ms-transform: translateY(10vh);
-            transform: translateY(10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-up.run-animation {
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
-
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-down {
-    -webkit-transform: translateY(-10vh);
-        -ms-transform: translateY(-10vh);
-            transform: translateY(-10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-down.run-animation {
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
-
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-left {
-    -webkit-transform: translateX(10vh);
-        -ms-transform: translateX(10vh);
-            transform: translateX(10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-left.run-animation {
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-right {
-    -webkit-transform: translateX(-10vh);
-        -ms-transform: translateX(-10vh);
-            transform: translateX(-10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-right.run-animation {
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-
-    opacity: 1;
+    margin-top: 2em;
+    margin-bottom: 2.2em;
 }
 
 @media (max-width:1200px) {
-    #intro {
+    #entry {
         height: auto;
     }
 
-    #intro .container-mid {
+    #entry .container-mid {
         position: relative;
-        top: 0;
+        top: 50%;
 
         margin: 15vh 0;
 
-        -webkit-transform: translate(0);
-            -ms-transform: translate(0);
-                transform: translate(0);
+        transform: translate(0);
     }
 }
 
-/** Content Area --> About */
-#about p {
-    line-height: 1.5em;
-
-    margin-bottom: 2em;
-}
-
-#about p:last-child {
-    margin-bottom: 0;
-}
-
+/* Nämä pitää vielä minimoida! */
 /** Content Area --> Work */
 #work .showcase .item {
     position: relative;
@@ -439,8 +251,7 @@ a:hover {
 
     width: 100%;
     height: 24rem;
-    margin: 0;
-    margin-bottom: 6vh;
+    margin: 0 0 6vh;
 
     cursor: pointer;
 
@@ -461,9 +272,7 @@ a:hover {
     width: 0;
     height: 100%;
 
-    -webkit-transition: .25s ease;
-         -o-transition: .25s ease;
-            transition: .25s ease;
+    transition: .25s ease;
 
     color: #fff;
     background: #008aff;
@@ -481,27 +290,19 @@ a:hover {
     width: 100%;
     padding: 0 6rem;
 
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 #work .showcase .item .info .container-mid h5 {
-    -webkit-transform: translateX(4vh);
-        -ms-transform: translateX(4vh);
-            transform: translateX(4vh);
+    transform: translateX(4vh);
 
     opacity: 0;
     color: #fff;
 }
 
 #work .showcase .item:hover .info .container-mid h5 {
-    -webkit-transition: .2s ease .2s;
-         -o-transition: .2s ease .2s;
-            transition: .2s ease .2s;
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
+    transition: .2s ease .2s;
+    transform: translateX(0);
 
     opacity: 1;
 }
@@ -511,21 +312,15 @@ a:hover {
 
     padding-left: 2.7rem;
 
-    -webkit-transform: translateX(4vh);
-        -ms-transform: translateX(4vh);
-            transform: translateX(4vh);
+    transform: translateX(4vh);
     letter-spacing: .025em;
 
     opacity: 0;
 }
 
 #work .showcase .item:hover .info .container-mid p {
-    -webkit-transition: .2s ease .3s;
-         -o-transition: .2s ease .3s;
-            transition: .2s ease .3s;
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
+    transition: .2s ease .3s;
+    transform: translateX(0);
 
     opacity: 1;
 }
@@ -539,9 +334,7 @@ a:hover {
     height: 1px;
 
     content: '';
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
 
     background: #fff;
 }
@@ -580,7 +373,7 @@ a:hover {
 }
 
 .featherlight .featherlight-content .work-lightbox {
-    max-width: 1000px;
+    max-width: 100%;
     padding: 6vh;
 
     text-align: center;
@@ -588,6 +381,7 @@ a:hover {
 
 .featherlight .featherlight-content .work-lightbox img {
     margin: 0 auto 4vh auto;
+    max-width: 100%;
 }
 
 .featherlight .featherlight-content .work-lightbox p.subline {
@@ -626,6 +420,7 @@ a:hover {
     border-radius: 100px;
 }
 
+
 /** Content Area --> Footer */
 #footer .social-icons {
     padding: 0;
@@ -644,8 +439,7 @@ a:hover {
 
     width: 3em;
     height: 3em;
-    margin: 0;
-    margin-right: 1em;
+    margin: 0 1em 0 0;
 
     text-align: center;
 
@@ -706,4 +500,17 @@ a:hover {
 #footer p a {
     color: #000;
     border-bottom: 1px solid #111;
+}
+  
+.revealLeft {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    text-align: left;
+    overflow: visible; /* Allow overflow when text is revealed, its going over a little... */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
 }
