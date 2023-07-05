@@ -1,18 +1,3 @@
-jQuery(window).on('load', function() {
-	"use strict";   
-    // SHOW/ANIMATE ANIMATION CONTAINER
-    setTimeout(function(){
-        $("#entry .animation-container").each(function() {
-            const e = $(this);
-
-            setTimeout(function(){
-                e.addClass("run-animation");
-            }, e.data("animation-delay") );
-        });
-    }, 700 );
-});
-
-
 jQuery(document).ready(function($) {
 	"use strict";
     // SMOOTH SCROLL FOR SAME PAGE LINKS
